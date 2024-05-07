@@ -16,30 +16,29 @@ public class Part2Search {
     }
 
     public int binarySearch(int[] a, int search) {
-        int left = 0;
-        int right = a.length - 1;
+    int left = 0;
+    int right = a.length - 1;
 
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
 
-
-            if (a[mid] == search)
-                return mid;
-
-            if (mid < left || mid > right)
-                return -1;
-
-
-            if (a[mid] < search)
-                left = mid + 1;
-
-
-            else
-                right = mid - 1;
+        if (a[mid] == search) {
+            return mid;
         }
 
-        return -1;
+        if (mid < left || mid > right) {
+            return -1;
+        }
+
+        if (a[mid] < search) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
     }
+
+    return -1;
+}
 
     public int recursiveBinarySearch(int[] a, int search, int low, int high) {
 
